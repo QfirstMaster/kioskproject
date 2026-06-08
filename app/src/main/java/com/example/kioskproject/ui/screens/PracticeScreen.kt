@@ -45,7 +45,7 @@ fun PracticeScreen(
 
     // 연습 카테고리 목록
     val categories = listOf(
-        PracticeCategory("🎬", "영화관", "좌석 선택 · 티켓 발권", Screen.PracticeMovie.route),
+        PracticeCategory("🎬", "영화관", "팝콘 · 음료 선택", Screen.PracticeMovie.route),
         PracticeCategory("☕", "카페", "음료 · 사이즈 선택", Screen.PracticeCafe.route),
         PracticeCategory("🍔", "패스트푸드", "세트 메뉴 · 결제", Screen.PracticeFastFood.route),
         PracticeCategory("🍱", "음식점", "메뉴 선택 · 테이블", Screen.PracticeRestaurant.route)

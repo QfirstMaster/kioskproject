@@ -14,14 +14,35 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PracticeDetailScreen(navController: NavController, category: String) {
-    // 카테고리에 따라 제목과 이모지 설정
+fun PracticeDetailScreen(
+    navController: NavController,
+    category: String
+) {
+
+    when (category) {
+
+        "movie" -> {
+            MoviePracticeScreen(navController)
+            return
+        }
+
+        "cafe" -> {
+            CafePracticeScreen(navController)
+            return
+        }
+
+        "fastfood" -> {
+            FastFoodPracticeScreen(navController)
+            return
+        }
+        "restaurant" -> {
+            RestaurantPracticeScreen(navController)
+            return
+        }
+    }
+
     val (emoji, title) = when (category) {
-        "movie"      -> "🎬" to "영화관 키오스크"
-        "cafe"       -> "☕" to "카페 키오스크"
-        "fastfood"   -> "🍔" to "패스트푸드 키오스크"
-        "restaurant" -> "🍱" to "음식점 키오스크"
-        else         -> "🖥️" to "키오스크"
+        else -> "🖥️" to "키오스크"
     }
 
     Scaffold(
@@ -29,30 +50,44 @@ fun PracticeDetailScreen(navController: NavController, category: String) {
             TopAppBar(
                 title = { Text(title) },
                 navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.Outlined.ArrowBack, contentDescription = "뒤로가기")
+                    IconButton(
+                        onClick = {
+                            navController.popBackStack()
+                        }
+                    ) {
+                        Icon(
+                            Icons.Outlined.ArrowBack,
+                            contentDescription = "뒤로가기"
+                        )
                     }
                 }
             )
         }
     ) { innerPadding ->
-        // 추후 각 카테고리별 키오스크 UI 구현 예정
+
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
             contentAlignment = Alignment.Center
         ) {
+
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Text(text = emoji, fontSize = 64.sp)
+
+                Text(
+                    text = emoji,
+                    fontSize = 64.sp
+                )
+
                 Text(
                     text = title,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold
                 )
+
                 Text(
                     text = "준비 중이에요!",
                     fontSize = 16.sp,
