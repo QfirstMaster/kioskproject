@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="키오스크 지원">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2026-05-25T20:41:58.359702500Z">
+        <DropdownSelection timestamp="2026-06-08T05:26:03.785824900Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\kmj03\.android\avd\test_phone.avd" />
