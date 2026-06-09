@@ -15,14 +15,30 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun QuizDetailScreen(navController: NavController, category: String) {
-    // 카테고리에 따라 제목과 이모지 설정
+fun QuizDetailScreen(
+    navController: NavController,
+    category: String
+) {
+    when (category) {
+        "movie" -> {
+            MovieQuizScreen(navController)
+            return
+        }
+
+        "cafe" -> {
+            CafeQuizScreen(navController)
+            return
+        }
+
+        "restaurant" -> {
+            RestaurantQuizScreen(navController)
+            return
+        }
+    }
+    // 기존 객관식 퀴즈 코드
     val (emoji, title) = when (category) {
-        "movie"      -> "🎬" to "영화관 문제"
-        "cafe"       -> "☕" to "카페 문제"
-        "fastfood"   -> "🍔" to "패스트푸드 문제"
-        "restaurant" -> "🍱" to "음식점 문제"
-        else         -> "🖥️" to "키오스크 문제"
+        "fastfood" -> "🍔" to "패스트푸드 문제"
+        else -> "🖥️" to "키오스크 문제"
     }
 
     // 현재 문제 번호 (0부터 시작)

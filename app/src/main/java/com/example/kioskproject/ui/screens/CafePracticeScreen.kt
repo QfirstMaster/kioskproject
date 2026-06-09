@@ -32,12 +32,17 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.kioskproject.viewmodel.SettingsViewModel
 import kotlin.random.Random
+// 추가함
+import com.example.kioskproject.R
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 
 // 카페 메뉴 정보
 data class CafeMenuItem(
     val name: String,
     val price: Int,
-    val emoji: String,
+    val imageRes: Int, // 수정
     val category: String
 )
 
@@ -55,21 +60,21 @@ private val cafeMenuList = listOf(
     CafeMenuItem(
         "아메리카노",
         2500,
-        "☕",
+        R.drawable.americano,
         "coffee"
     ),
 
     CafeMenuItem(
         "카페라떼",
         3500,
-        "🥛",
+        R.drawable.cafe_latte,
         "coffee"
     ),
 
     CafeMenuItem(
         "바닐라라떼",
         4000,
-        "🍦",
+        R.drawable.vanilla_latte,
         "coffee"
     ),
 
@@ -77,14 +82,14 @@ private val cafeMenuList = listOf(
     CafeMenuItem(
         "레몬에이드",
         4500,
-        "🍋",
+        R.drawable.lemonade,
         "ade"
     ),
 
     CafeMenuItem(
         "청포도에이드",
         4500,
-        "🍇",
+        R.drawable.green_grape_ade,
         "ade"
     ),
 
@@ -92,14 +97,14 @@ private val cafeMenuList = listOf(
     CafeMenuItem(
         "딸기스무디",
         5000,
-        "🍓",
+        R.drawable.strawberry_smoothie,
         "smoothie"
     ),
 
     CafeMenuItem(
         "망고스무디",
         5000,
-        "🥭",
+        R.drawable.mango_smoothie,
         "smoothie"
     ),
 
@@ -107,14 +112,14 @@ private val cafeMenuList = listOf(
     CafeMenuItem(
         "치즈케이크",
         4500,
-        "🍰",
+        R.drawable.cheese_cake,
         "dessert"
     ),
 
     CafeMenuItem(
         "초코케이크",
         4500,
-        "🍫",
+        R.drawable.chocolate_cake,
         "dessert"
     )
 )
@@ -794,14 +799,27 @@ fun CafeMenuCard(
             verticalArrangement = Arrangement.SpaceBetween
         ) {
 
-            Text(
-                text = item.emoji,
+            // 삭제
+            /*Text(
+                  text = item.emoji,
 
-                fontSize =
+                  fontSize =
+                      if (isSeniorMode)
+                          52.sp
+                      else
+                          40.sp
+              )*/
+
+            // 추가
+            Image(
+                painter = painterResource(id = item.imageRes),
+                contentDescription = item.name,
+                modifier = Modifier.size(
                     if (isSeniorMode)
-                        52.sp
+                        100.dp
                     else
-                        40.sp
+                        80.dp
+                )
             )
 
             Column(
@@ -849,9 +867,9 @@ fun CafeMenuCard(
 
                     fontSize =
                         if (isSeniorMode)
-                            16.sp
+                            18.sp
                         else
-                            12.sp
+                            14.sp
                 )
             }
         }

@@ -30,7 +30,7 @@ data class RestaurantCartItem(
     val quantity: Int
 )
 
-private val restaurantMenuList = listOf(
+val restaurantMenuList = listOf(
 
     RestaurantMenuItem("알리오올리오",18000,"🍝","pasta"),
     RestaurantMenuItem("까르보나라",20000,"🍝","pasta"),
