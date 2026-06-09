@@ -34,10 +34,13 @@ fun QuizDetailScreen(
             RestaurantQuizScreen(navController)
             return
         }
+        "fastfood" -> {
+            FastFoodQuizScreen(navController)
+            return
+        }
     }
     // 기존 객관식 퀴즈 코드
     val (emoji, title) = when (category) {
-        "fastfood" -> "🍔" to "패스트푸드 문제"
         else -> "🖥️" to "키오스크 문제"
     }
 

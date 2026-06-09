@@ -36,7 +36,7 @@ data class FastFoodCartItem(
     val price: Int
 )
 
-private val fastFoodMenuList = listOf(
+val fastFoodMenuList = listOf(
 
     // 버거
     FastFoodMenuItem(
