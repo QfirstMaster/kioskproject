@@ -35,10 +35,10 @@ fun QuizScreen(
 
     // 퀴즈 카테고리 목록
     val categories = listOf(
-        PracticeCategory("🎬", "영화관 문제", "5문항", Screen.QuizMovie.route),
-        PracticeCategory("☕", "카페 문제", "5문항", Screen.QuizCafe.route),
-        PracticeCategory("🍔", "패스트푸드 문제", "5문항", Screen.QuizFastFood.route),
-        PracticeCategory("🍱", "음식점 문제", "5문항", Screen.QuizRestaurant.route)
+        PracticeCategory("🎬", "영화관 문제", "콤보와 팝콘 사이드 퀴즈", Screen.QuizMovie.route),
+        PracticeCategory("☕", "카페 문제", "음료 사이즈와 얼음선택 퀴즈", Screen.QuizCafe.route),
+        PracticeCategory("🍔", "패스트푸드 문제", "햄버거 단품 및 세트 구성 퀴즈", Screen.QuizFastFood.route),
+        PracticeCategory("🍱", "음식점 문제", "음식 주문 퀴즈", Screen.QuizRestaurant.route)
     )
 
     Scaffold(

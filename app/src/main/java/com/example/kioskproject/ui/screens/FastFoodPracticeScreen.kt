@@ -18,11 +18,16 @@ import com.example.kioskproject.viewmodel.SettingsViewModel
 import kotlin.random.Random
 import androidx.compose.ui.Alignment
 
+import com.example.kioskproject.R
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+
 // 메뉴 정보
 data class FastFoodMenuItem(
     val name: String,
     val price: Int,
-    val emoji: String,
+    val imageRes: Int,//수정
     val category: String
 )
 
@@ -42,21 +47,21 @@ val fastFoodMenuList = listOf(
     FastFoodMenuItem(
         "치즈버거",
         5000,
-        "🍔",
+        R.drawable.cheese_burger,
         "burger"
     ),
 
     FastFoodMenuItem(
         "불고기버거",
         5500,
-        "🍔",
+        R.drawable.beef_burger,
         "burger"
     ),
 
     FastFoodMenuItem(
         "새우버거",
         6000,
-        "🍤",
+        R.drawable.shrimp,
         "burger"
     ),
 
@@ -64,14 +69,14 @@ val fastFoodMenuList = listOf(
     FastFoodMenuItem(
         "감자튀김",
         2500,
-        "🍟",
+        R.drawable.fries,
         "side"
     ),
 
     FastFoodMenuItem(
         "치즈스틱",
         3000,
-        "🧀",
+        R.drawable.cheese_stick,
         "side"
     ),
 
@@ -79,14 +84,14 @@ val fastFoodMenuList = listOf(
     FastFoodMenuItem(
         "콜라",
         2000,
-        "🥤",
+        R.drawable.cola,
         "drink"
     ),
 
     FastFoodMenuItem(
         "사이다",
         2000,
-        "🥤",
+        R.drawable.soda,
         "drink"
     ),
 
@@ -94,7 +99,7 @@ val fastFoodMenuList = listOf(
     FastFoodMenuItem(
         "아이스크림",
         1500,
-        "🍦",
+        R.drawable.ice_cream,
         "dessert"
     )
 )
@@ -806,14 +811,10 @@ fun FastFoodMenuCard(
                 Arrangement.SpaceBetween
         ) {
 
-            Text(
-                text = item.emoji,
-
-                fontSize =
-                    if (isSeniorMode)
-                        52.sp
-                    else
-                        40.sp
+            Image(
+                painter = painterResource(id = item.imageRes),
+                contentDescription = item.name,
+                modifier = Modifier.size(80.dp)
             )
 
             Column(
